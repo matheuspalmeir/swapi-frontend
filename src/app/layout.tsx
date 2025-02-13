@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+
 import Header from "./components/Header";
+import QueryProvider from "./components/QueryProvider/index.";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import "./globals.css";
+import { StarWarsProvider } from "./context/StarWarsContext";
 
 export const metadata: Metadata = {
   title: "Star Wars Movies & People",
@@ -25,11 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Header />
-        {children}
+      <body className={`antialiased`}>
+        <QueryProvider>
+          <StarWarsProvider>
+            <Header />
+            {children}
+          </StarWarsProvider>
+        </QueryProvider>
       </body>
     </html>
   );
