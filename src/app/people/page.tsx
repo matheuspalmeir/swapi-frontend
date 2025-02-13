@@ -14,11 +14,10 @@ export default function CharacterDetails() {
 
   useEffect(() => {
     const query = searchParams.get("name") || "";
-    console.log("[CharacterDetails] People: ", people);
+
     if (people && query) {
-      console.log("Query:", query);
       const character = people?.find((person) => person.name === query);
-      console.log("Character:", character);
+
       setCharacter(character || null);
     }
   }, [searchParams, people]);
@@ -60,16 +59,18 @@ export default function CharacterDetails() {
           <hr className="border-gray-300 mb-2" />
           <ul>
             <li>
-              <a href="#" className="text-blue-500 hover:underline">
-                {character?.films.map((film: string) => {
-                  const filmId = film.split("/films/")[1].replace("/", "");
-                  return (
-                    <Link className="p-2" href={`/movies/${filmId}`}>
-                      Film: {filmId}
-                    </Link>
-                  );
-                })}
-              </a>
+              {character?.films.map((film: string) => {
+                const filmId = film.split("/films/")[1].replace("/", "");
+                return (
+                  <Link
+                    className="p-2 text-green-800 hover:underline"
+                    href={`/movies/?id=${filmId}`}
+                    key={`film-id-${filmId}`}
+                  >
+                    Film: {filmId}
+                  </Link>
+                );
+              })}
             </li>
           </ul>
         </div>

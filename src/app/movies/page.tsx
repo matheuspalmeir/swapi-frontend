@@ -15,11 +15,9 @@ export default function MovieDetails() {
   useEffect(() => {
     const query = searchParams.get("id") || "";
     if (movies && query) {
-      console.log("Query:", query);
       const movie = movies?.find(
         (movie) => movie.episode_id.toString() === query
       );
-      console.log("movie:", movie);
       setCharacter(movie || null);
     }
   }, [searchParams, movie]);
@@ -40,22 +38,20 @@ export default function MovieDetails() {
           <hr className="border-gray-300 mb-2" />
           <ul>
             <li>
-              <a href="#" className="text-blue-500 hover:underline">
-                {movie?.characters.map((character: string) => {
-                  const characterId = character
-                    .split("/people/")[1]
-                    .replace("/", "");
-                  return (
-                    <Link
-                      className="p-2"
-                      href={`/people/${characterId}`}
-                      key={`character-link-${characterId}`}
-                    >
-                      Character: {characterId}
-                    </Link>
-                  );
-                })}
-              </a>
+              {movie?.characters.map((character: string) => {
+                const characterId = character
+                  .split("/people/")[1]
+                  .replace("/", "");
+                return (
+                  <Link
+                    className="p-2 text-green-800 hover:underline"
+                    href={`/people/?id=${characterId}`}
+                    key={`character-link-${characterId}`}
+                  >
+                    Character: {characterId}
+                  </Link>
+                );
+              })}
             </li>
           </ul>
         </div>

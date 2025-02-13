@@ -11,7 +11,6 @@ export default function StartWarsMovies({
   onClickDetails,
   data,
 }: StarWarsMoviesProps) {
-  console.log("StarWarsMovies Props:", { data, onClickDetails });
   return (
     <>
       {data?.map((movie, index) => (

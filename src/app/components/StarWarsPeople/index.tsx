@@ -11,7 +11,6 @@ export default function StartWarsPeople({
   data,
   onClickDetails,
 }: StarWarsPeopleProps) {
-  console.log("StarWarsPeople Props:", { data, onClickDetails });
   return (
     <>
       {data?.map((person, index) => (

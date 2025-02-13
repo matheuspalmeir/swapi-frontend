@@ -20,16 +20,13 @@ export default function SearchResults({
   people,
   movies,
 }: TSearchResultsProps) {
-  console.log("SearchResults Props:", { searchType, people, movies });
   const { replace } = useRouter();
 
   const handleOnClickDetailsPerson = (person: TStarWarsPerson) => {
-    console.log("person: ", person);
     replace(`/people?name=${person.name}`);
   };
 
   const handleOnClickDetailsMovie = (movie: TStarWarsMovie) => {
-    console.log("movie: ", movie);
     replace(`/movies?id=${movie.episode_id}`);
   };
 

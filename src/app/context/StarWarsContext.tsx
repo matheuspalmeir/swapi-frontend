@@ -24,7 +24,6 @@ const StarWarsContext = createContext<StarWarsContextType | undefined>(
 
 export function StarWarsProvider({ children }: { children: ReactNode }) {
   const starWarsState = useSWSearch();
-  console.log("Context state:", starWarsState);
 
   return (
     <StarWarsContext.Provider value={starWarsState}>

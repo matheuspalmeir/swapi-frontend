@@ -19,13 +19,10 @@ export function useSWSearch() {
 
   const { mutate: peopleMutate, data } = useMutation({
     mutationFn: (query: string) => getPeople(query),
+    onMutate: () => {
+      setIsLoading(true);
+    },
     onSuccess: (peopleFetched) => {
-      console.log("peopleFetched: ", peopleFetched);
-
-      console.log(
-        "peopleFetched.results.length: ",
-        peopleFetched.results.length
-      );
       setPeople(peopleFetched.results); // Confirm data structure
       setIsLoading(false);
       setDisabledSearch(false);
@@ -34,13 +31,10 @@ export function useSWSearch() {
 
   const { mutate: moviesMutate } = useMutation({
     mutationFn: (query: string) => getMovies(query),
+    onMutate: () => {
+      setIsLoading(true);
+    },
     onSuccess: (moviesFetched) => {
-      console.log("moviesFetched: ", moviesFetched);
-
-      console.log(
-        "moviesFetched.results.length: ",
-        moviesFetched.results.length
-      );
       setMovies(moviesFetched.results); // Confirm data structure
       setIsLoading(false);
       setDisabledSearch(false);
@@ -51,7 +45,6 @@ export function useSWSearch() {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const value = event.target.value;
-    console.log("Setting input radio value: ", value);
     value === "People"
       ? setPlaceHolder(peoplePlaceHolder)
       : setPlaceHolder(moviesPlaceHolder);
@@ -59,8 +52,6 @@ export function useSWSearch() {
   };
 
   const handleSearchButtonClick = () => {
-    console.log("Searching for: ", inputSearchValue);
-
     if (searchType === "People") {
       peopleMutate(inputSearchValue);
       if (data) setPeople(data.results);
