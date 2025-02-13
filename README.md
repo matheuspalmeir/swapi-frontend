@@ -20,8 +20,8 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Running with Docker
-
-After you unzip the project, run the following command to start the application:
+Running with Docker require you to clone the https://github.com/matheuspalmeir/sw-app repository, which contain the docker compose file to orquestrate the containers. 
+After you clone the sw-app repo and also this repo, run the following command to start the application in the /sw-app folder:
 
 ```bash
 docker compose up --build
