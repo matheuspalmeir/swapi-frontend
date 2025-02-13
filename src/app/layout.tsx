@@ -22,7 +22,9 @@ export default function RootLayout({
         <QueryProvider>
           <StarWarsProvider>
             <Header />
-            {children}
+            <div className="min-h-screen min-w-screen bg-gray-200 p-12">
+              <main className="lawnstarter-theme">{children}</main>
+            </div>
           </StarWarsProvider>
         </QueryProvider>
       </body>

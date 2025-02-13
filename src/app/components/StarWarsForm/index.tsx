@@ -12,7 +12,7 @@ export default function StarWarsForm() {
     disabledSearch,
   } = useStarWars();
   return (
-    <form className="flex flex-col min-w-100">
+    <div className="flex flex-col min-w-100">
       <span className="text-sm font-bold text-gray-900">
         What are you searching for?
       </span>
@@ -49,6 +49,6 @@ export default function StarWarsForm() {
           Search
         </Button>
       </div>
-    </form>
+    </div>
   );
 }
