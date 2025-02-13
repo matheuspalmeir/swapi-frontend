@@ -1,7 +1,7 @@
 export const SWAPI = {
-  BASE_URL: "https://swapi.dev/api/",
-  GET_PEOPLE: "https://swapi.dev/api/people/",
-  GET_PEOPLE_BY_NAME: "https://swapi.dev/api/people/?search=",
-  GET_MOVIES: "https://swapi.dev/api/films/",
-  GET_MOVIES_BY_TITLE: "https://swapi.dev/api/films/?search=",
+  BASE_URL: "http://localhost:8000/api/",
+  GET_PEOPLE: "http://localhost:8000/api/people/",
+  GET_PEOPLE_BY_NAME: "http://localhost:8000/api/people?search=",
+  GET_MOVIES: "http://localhost:8000/api/films/",
+  GET_MOVIES_BY_TITLE: "http://localhost:8000/api/films?search=",
 };

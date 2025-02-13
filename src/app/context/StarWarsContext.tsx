@@ -6,6 +6,7 @@ import { TStarWarsMovies, TStarWarsPeople } from "../types";
 type StarWarsContextType = {
   isLoading: boolean;
   people?: TStarWarsPeople;
+  error?: boolean;
   movies?: TStarWarsMovies;
   searchType: string;
   placeHolder: string;
